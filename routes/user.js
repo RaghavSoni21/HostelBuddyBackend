@@ -4,8 +4,8 @@ const router = Router();
 const {User, Room, Application} = require("../database/index")
 
 
-router.get('/userDetails', async (req,res) => {    
-    const userRegNo = req.body.regno;
+router.get('/:regno/userDetails', async (req,res) => {    
+    const userRegNo = req.params.regno;
     await User.findOne({
         regno: userRegNo
     }).then(async (data)=>{
