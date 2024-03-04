@@ -3,6 +3,7 @@ const router = Router();
 // const userMiddleware = require("../middlewares/user");
 const {User, Room, Application} = require("../database/index")
 
+
 router.get('/userDetails', async (req,res) => {    
     const userRegNo = req.body.regno;
     await User.findOne({
@@ -175,8 +176,8 @@ router.post('/re_apply', async (req,res) => {
     })
 })
 
-router.get('/userapplicationdetails', async (req,res) => { 
-    const userRegNo = req.body.regno;   
+router.get('/:regno/userapplicationdetails', async (req,res) => { 
+    const userRegNo = req.params.regno;   
     await User.findOne({
         regno : userRegNo
     }).then(async (data)=>{

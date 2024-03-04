@@ -6,9 +6,15 @@ const createApplication = zod.object({
 })
 
 const createUser = zod.object({
-    username: zod.string(),
-    password: zod.string()
+    regno: zod.string().min(4).max(10),
+    password: zod.string().min(6),
+    name: zod.string(),
+    email: zod.string().email(),
+    roomtype: zod.string(),
+    block: zod.string(),
+    roomno: zod.string()
 })
+
 
 module.exports = {
     createTodo: createTodo,
